@@ -186,7 +186,7 @@ Env::file_str(string fname)
 }
 
 inline
-Env::Env(uint32_t N, uint32_t K, uint32_t L, 
+Env::Env(uint32_t N, uint32_t K, uint32_t L, double alph,
 	 bool batch, 
 	 bool force_overwrite_dir, string dfname, 
 	 string lbl,
