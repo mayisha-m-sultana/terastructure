@@ -49,7 +49,7 @@ typedef std::map<uint32_t, string> StrMapInv;
 
 class Env {
 public:
-  Env(uint32_t N, uint32_t K, uint32_t L, 
+  Env(uint32_t N, uint32_t K, uint32_t L, double alph,
       bool batch, 
       bool force_overwrite_dir, string dfname, 
       string label,
@@ -68,6 +68,7 @@ public:
   uint32_t n;
   uint32_t k;
   uint32_t l;
+  double alph;
   uint32_t t;
   uint32_t blocks;
   uint32_t indiv_sample_size;
@@ -206,7 +207,7 @@ Env::Env(uint32_t N, uint32_t K, uint32_t L,
     nthreads(nthreadsv),
     batch_mode(batch),
     meanchangethresh(0.001),
-    alpha((double)1.0/k),
+    alpha(alph),
     heldout_indiv_ratio(0.001),
     validation_ratio(0.005),
     test_ratio(0.005),
