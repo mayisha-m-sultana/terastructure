@@ -47,6 +47,7 @@ main(int argc, char **argv)
   string datfname = "network.dat";
   string label = "";
   uint32_t n = 0, k = 0, l = 0;
+  double alph = 0.0;
   int i = 0;
 
   bool batch = false;
@@ -121,6 +122,9 @@ main(int argc, char **argv)
     } else if (strcmp(argv[i], "-l") == 0) {
       l = atoi(argv[++i]);
       fprintf(stdout, "+ L = %d\n", l);
+    } else if (strcmp(argv[i], "-alph") == 0) {
+      alph = atoi(argv[++i]);
+      fprintf(stdout, "+ alph = %d\n", alph);
     } else if (strcmp(argv[i], "-label") == 0) {
       label = string(argv[++i]);
     } else if (strcmp(argv[i], "-eta-type") == 0) {
@@ -191,7 +195,7 @@ main(int argc, char **argv)
 
   assert (!(batch && online));
   
-  Env env(n, k, l, batch, 
+  Env env(n, k, l, alph, batch, 
 	  force_overwrite_dir, datfname, label, eta_type,
 	  rfreq, logl, loadcmp, seed, file_suffix, 
 	  save_beta, adagrad, nthreads,
